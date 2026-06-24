@@ -1,4 +1,4 @@
-import classSubsetSum
+import problems.SubsetSum as SubsetSum
 import random
 
 def main():
@@ -16,7 +16,7 @@ def main():
     patience = 10
 
     # Create an instance of the SubsetSum class and run the genetic algorithm
-    subsetSum = classSubsetSum.SubsetSum(numbers, target, selectionType, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience)
+    subsetSum = SubsetSum.SubsetSum(numbers, target, selectionType, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience)
     result = subsetSum.genetic_algorithm()
 
     # Print the results of the genetic algorithm

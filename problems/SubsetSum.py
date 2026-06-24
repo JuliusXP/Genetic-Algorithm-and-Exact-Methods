@@ -1,8 +1,8 @@
-import classBase
+import Base
 import random
 
 # Subclass for the Subset Sum problem, inheriting from the Base class
-class SubsetSum(classBase.Base):
+class SubsetSum(Base.Base):
     def __init__(self, numbers, target, selectionType, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience):
         super().__init__(selectionType, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience)
         self.numbers = numbers
