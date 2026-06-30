@@ -10,8 +10,9 @@ Dudas para el profe:
 
 #Base class for Genetic Algorithms
 class Base():
-    def __init__(self, selectionType, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience):
+    def __init__(self, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience):
         self.selectionType = selectionType
+        self.chromosomSize = chromosomSize
         self.populationSize = populationSize
         self.generations = generations
         self.tournamentSize = tournamentSize
@@ -21,13 +22,16 @@ class Base():
         self.patience = patience
 
     #Create an Individual chromosom, this function is polymorphic, it will be declared in the classes of each genetic algorithm
-    def createIndividual(self):
-        pass
-    
+    def createIndividual(self, chromosomSize):
+        #Binary chromosome
+        Individual = []
+        for i in range(chromosomSize):
+            Individual.append(random.randint(0, 1))
+        return Individual
+
     #Create a population of individuals
     def createPopulation(self):
-
-        population = [self.createIndividual() for i in range(self.populationSize)]
+        population = [self.createIndividual(self.chromosomSize) for i in range(self.populationSize)]
         return population
     
     #Calculate the fitness of an individual, this function is polymorphic, it will be declared in the classes of each genetic algorithm
@@ -214,20 +218,5 @@ class Base():
             "history": history
         }
     
-    def printResults(self, result, numbers, target):
-        
-        best = result["bestIndividual"]
-        solution = []
-
-        for i in range(len(best)):
-            if best[i] == 1:
-                solution.append(numbers[i])
-
-        print()
-        print("Numbers:", numbers)
-        print("Target sum:", target)
-        print("Best chromosome:", best)
-        print("Subset:", solution)
-        print("Sum:", sum(solution))
-        print("Fitness:", result["bestFitness"])
-        print("Generation:", result["bestGeneration"])
+    def printResults(self):
+        pass
