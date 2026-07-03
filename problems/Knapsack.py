@@ -40,3 +40,26 @@ class KnapsackExact:
         self.weights = weights
         self.capacities = capacities
         self.dimensions = len(capacities)
+
+
+    def _feasible(self,indices):
+        for d in range(self.dimensions):
+            used = sum(self.weights[i][d] for i in indicies)
+            if used > self.capacities[d]:
+                return False
+        return True
+        
+
+    def exhaustive(self): 
+        n = len(self.values)
+        bestValue = -1 
+        bestSubset = []
+        
+        for mask in range(1<<n):
+            chosen = [i for i in range(n) if mask & (i<<i)]
+            if self._feasible(chosen): 
+                value = sum(self.values[i] for i in chosen)
+                if value > bestValue: 
+                    bestValue = value 
+                    bestSubset = chosen 
+        return bestSubset
