@@ -4,7 +4,7 @@ import problems.Base as Base
 
 class KnapsackGA(Base.Base):
     
-    def __int__(self, values, weights, capacities,selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience):
+    def __init__(self, values, weights, capacities,selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience):
         super().__init__(selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience)
         self.values = values 
         self.weights = weights
@@ -84,3 +84,140 @@ class KnapsackExact:
         return dp(W, val, wt, n, memo)
 
     #genetic 
+
+# Genetic Knapsack
+    def genetic(self):
+
+       #Generate random values and weights for small Knapsack
+        values = [random.randint(10, 100) for i in range(20)]
+
+        weights = [random.randint(1, 30) for i in range(20)]
+
+        capacities = [100]
+
+        selectionType = "tournament"
+        chromosomSize = len(values)
+        populationSize = 50
+        generations = 100
+        tournamentSize = 3
+        crossoverProb = 0.7
+        mutationProb = 0.05
+        elitismNum = 2
+        patience = 20
+
+        self.geneticSolver = KnapsackGA(
+            values,
+            weights,
+            capacities,
+            selectionType,
+            chromosomSize,
+            populationSize,
+            generations,
+            tournamentSize,
+            mutationProb,
+            crossoverProb,
+            elitismNum,
+            patience
+        )
+
+        result = self.geneticSolver.genetic_algorithm()
+        self.geneticSolver.printResults(result, values, weights, capacities)
+
+        # Case 2: Midium Knapsack 
+        values = [random.randint(10, 150) for i in range(50)]
+
+        weights = [ [random.randint(1, 50)] for i in range(50)]
+
+        capacities = [500]
+
+        selectionType = "tournament"
+        chromosomSize = len(values)
+        populationSize = 200
+        generations = 500
+        tournamentSize = 5
+        crossoverProb = 0.8
+        mutationProb = 0.1
+        elitismNum = 10
+        patience = 50
+
+        self.geneticSolver = KnapsackGA(
+            values,
+            weights,
+            capacities,
+            selectionType,
+            chromosomSize,
+            populationSize,
+            generations,
+            tournamentSize,
+            mutationProb,
+            crossoverProb,
+            elitismNum,
+            patience
+        )
+
+        result = self.geneticSolver.genetic_algorithm()
+        self.geneticSolver.printResults(result, values, weights, capacities)
+
+        # Case 3: BigKnapsack 
+        values = [random.randint(20, 200) for i in range(100)]
+
+        weights = [
+            [random.randint(5, 80)]
+            for i in range(100)
+        ]
+
+        capacities = [1500]
+
+        selectionType = "tournament"
+        chromosomSize = len(values)
+        populationSize = 1000
+        generations = 2000
+        tournamentSize = 8
+        crossoverProb = 0.9
+        mutationProb = 0.15
+        elitismNum = 20
+        patience = 100
+
+        self.geneticSolver = KnapsackGA(
+            values,
+            weights,
+            capacities,
+            selectionType,
+            chromosomSize,
+            populationSize,
+            generations,
+            tournamentSize,
+            mutationProb,
+            crossoverProb,
+            elitismNum,
+            patience
+        )
+
+        result = self.geneticSolver.genetic_algorithm()
+        self.geneticSolver.printResults(result, values, weights, capacities)
+
+#Button Up DP 
+def buttonUpKnapsack(W, val, wt):
+    n = len(wt)
+    dp = [[0 for _ in range(W + 1)] for _ in range(n + 1)]
+
+    # Build table dp[][] in bottom-up manner
+    for i in range(n + 1):
+        for j in range(W + 1):
+
+            # If there is no item or the knapsack's capacity is 0
+            if i == 0 or j == 0:
+                dp[i][j] = 0
+            else:
+                pick = 0
+
+                # Pick ith item if it does not exceed the capacity of knapsack
+                if wt[i - 1] <= j:
+                    pick = val[i - 1] + dp[i - 1][j - wt[i - 1]]
+
+                # Don't pick the ith item
+                notPick = dp[i - 1][j]
+
+                dp[i][j] = max(pick, notPick)
+
+    return dp[n][W]
