@@ -1,19 +1,16 @@
 import random 
 
-from genetic_algorithm import GeneticAlgorithm 
+import problems.Base as Base 
 
-class KnapsackGA(GeneticAlgorithm):
+class KnapsackGA(Base.Base):
     
-    def __int__(self, values, weights, capacities, **gaParams):
-        super().__init__(**gaParams)
+    def __int__(self, values, weights, capacities,selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience):
+        super().__init__(selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience)
         self.values = values 
         self.weights = weights
         self.capacities = capacities 
         self.dimensions = len(capacities)
 
-        #create one gene per item 
-    def createIndividual(self):
-        return [random.randint(0,1) for _ in self.values ]
     
     def fitness(self, individual):
         value = 0
@@ -30,36 +27,60 @@ class KnapsackGA(GeneticAlgorithm):
         return 1 / (1 + overflow)
     
 
-    def solve(self):
-         result = self.run()
-         chromosome = result["bestIndividual"]
-         return [i for i, gene in enumerate(chromosome) if gene]
 class KnapsackExact: 
-    def __int__(self, values, weights, capacities):
-        self.values = values
-        self.weights = weights
-        self.capacities = capacities
-        self.dimensions = len(capacities)
+    
+    #Knapsack with recursion 
+    def recursive(W, val, wt, n):
 
+        # Base Case
+        if n == 0 or W == 0:
+            return 0
 
-    def _feasible(self,indices):
-        for d in range(self.dimensions):
-            used = sum(self.weights[i][d] for i in indicies)
-            if used > self.capacities[d]:
-                return False
-        return True
+        pick = 0
+
+        # Pick nth item if it does not exceed the capacity of knapsack
+        if wt[n - 1] <= W:
+            pick = val[n - 1] + recursive(W - wt[n - 1], val, wt, n - 1)
         
-
-    def exhaustive(self): 
-        n = len(self.values)
-        bestValue = -1 
-        bestSubset = []
+        # Don't pick the nth item
+        notPick = recursive(W, val, wt, n - 1)
         
-        for mask in range(1<<n):
-            chosen = [i for i in range(n) if mask & (i<<i)]
-            if self._feasible(chosen): 
-                value = sum(self.values[i] for i in chosen)
-                if value > bestValue: 
-                    bestValue = value 
-                    bestSubset = chosen 
-        return bestSubset
+        return max(pick, notPick)
+
+    def recursiveKnapsack(W, val, wt):
+        n = len(val)
+        return recursive(W, val, wt, n)
+
+    #DP Knapsack 
+    def dp(W, val, wt, n, memo):
+
+        # Base Case
+        if n == 0 or W == 0:
+            return 0
+
+        # Check if we have previously calculated the same subproblem
+        if memo[n][W] != -1:
+            return memo[n][W]
+
+        pick = 0
+
+        # Pick nth item if it does not exceed the capacity of knapsack
+        if wt[n - 1] <= W:
+            pick = val[n - 1] + dp(W - wt[n - 1], val, wt, n - 1, memo)
+
+        # Don't pick the nth item
+        notPick = dp(W, val, wt, n - 1, memo)
+
+        # Store the result in memo[n][W] and return it
+        memo[n][W] = max(pick, notPick)
+        return memo[n][W]
+
+    def dpKnapsack(W, val, wt):
+        n = len(val)
+
+        # Memoization table to store the results
+        memo = [[-1] * (W + 1) for _ in range(n + 1)]
+
+        return dp(W, val, wt, n, memo)
+
+    #genetic 
