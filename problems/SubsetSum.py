@@ -3,8 +3,8 @@ import random
 
 # Subclass for the Subset Sum problem, inheriting from the Base class
 class GeneticSubsetSum(Base.Base):
-    def __init__(self, numbers, target, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience):
-        super().__init__(selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience)
+    def __init__(self, numbers, target, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience, crossoverType="onePoint", mutationType="bitFlip"):
+        super().__init__(selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience, crossoverType, mutationType)
         self.numbers = numbers
         self.target = target
 

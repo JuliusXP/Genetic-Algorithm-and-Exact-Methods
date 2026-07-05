@@ -10,7 +10,7 @@ Dudas para el profe:
 
 #Base class for Genetic Algorithms
 class Base():
-    def __init__(self, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience):
+    def __init__(self, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience, crossoverType="onePoint", mutationType="bitFlip"):
         self.selectionType = selectionType
         self.chromosomSize = chromosomSize
         self.populationSize = populationSize
@@ -20,6 +20,8 @@ class Base():
         self.crossoverProb = crossoverProb
         self.elitismNum = elitismNum
         self.patience = patience
+        self.crossoverType = crossoverType
+        self.mutationType = mutationType
 
     #Create an Individual chromosom, this function is polymorphic, it will be declared in the classes of each genetic algorithm
     def createIndividual(self, chromosomSize):
@@ -104,6 +106,12 @@ class Base():
         if random.random() > self.crossoverProb:
             return copy.deepcopy(parent1), copy.deepcopy(parent2)
         
+        if self.crossoverType == "twoPoint":
+            return self.twoPointCrossover(parent1, parent2)
+
+        if self.crossoverType == "uniform":
+            return self.uniformCrossover(parent1, parent2)
+        
         # Choose a random crossover point
         point = random.randint(1, len(parent1)-1)
 
@@ -113,8 +121,33 @@ class Base():
 
         return child1, child2
     
+
+
+    # Two-point crossover: swap the segment between two random points
+    def twoPointCrossover(self, parent1, parent2):
+        pointA, pointB = sorted(random.sample(range(1, len(parent1)), 2))
+        child1 = parent1[:pointA] + parent2[pointA:pointB] + parent1[pointB:]
+        child2 = parent2[:pointA] + parent1[pointA:pointB] + parent2[pointB:]
+        return child1, child2
+
+    # Uniform crossover: each gene comes from either parent with 50% chance
+    def uniformCrossover(self, parent1, parent2):
+        child1, child2 = [], []
+        for i in range(len(parent1)):
+            if random.random() < 0.5:
+                child1.append(parent1[i])
+                child2.append(parent2[i])
+            else:
+                child1.append(parent2[i])
+                child2.append(parent1[i])
+        return child1, child2
+    
+
     # Mutate an individual by flipping bits based on the mutation probability
     def mutation(self, individual):
+
+        if self.mutationType == "swap":
+            return self.swapMutation(individual)
 
         for i in range(len(individual)):
             # Check if the mutation should be performed based on the mutation probability
@@ -126,6 +159,16 @@ class Base():
                     individual[i] = 0
 
         return individual
+    
+
+    # Swap mutation: exchange two genes instead of flipping bits
+    def swapMutation(self, individual):
+        for i in range(len(individual)):
+            if random.random() < self.mutationProb:
+                j = random.randint(0, len(individual) - 1)
+                individual[i], individual[j] = individual[j], individual[i]
+        return individual
+    
     
     # Implement elitism, which is the process of selecting the best individuals from the current generation and carrying them over to the next generation without modification
     def elitism(self, evaluated):

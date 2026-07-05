@@ -3,8 +3,8 @@ import random
  
 # Subclass for the Bin Packing problem, inheriting from the Base class
 class GeneticBinPacking(Base.Base):
-    def __init__(self, items, capacity, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience):
-        super().__init__(selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience)
+    def __init__(self, items, capacity, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience, crossoverType="onePoint", mutationType="bitFlip"):
+        super().__init__(selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience, crossoverType, mutationType)
         self.items = items
         self.capacity = capacity
 

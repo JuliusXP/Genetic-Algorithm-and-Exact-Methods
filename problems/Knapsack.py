@@ -4,11 +4,11 @@ import problems.Base as Base
 
 class KnapsackGA(Base.Base):
     
-    def __init__(self, values, weights, capacities,selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience):
-        super().__init__(selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience)
-        self.values = values 
+    def __init__(self, values, weights, capacities, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience, crossoverType="onePoint", mutationType="bitFlip"):
+        super().__init__(selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience, crossoverType, mutationType)
+        self.values = values
         self.weights = weights
-        self.capacities = capacities 
+        self.capacities = capacities
         self.dimensions = len(capacities)
 
     
@@ -218,7 +218,7 @@ class KnapsackExact:
         self.geneticSolver.printResults(result, values, weights, capacities)
 
     #Buttom Up DP 
-    def buttomUpKnapsack(W, val, wt):
+    def buttomUpKnapsack(self, W, val, wt):
         n = len(wt)
         dp = [[0 for _ in range(W + 1)] for _ in range(n + 1)]
 
