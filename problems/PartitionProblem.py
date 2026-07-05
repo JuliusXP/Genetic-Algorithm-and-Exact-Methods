@@ -127,11 +127,11 @@ class PartitionProblem:
         patience = 20
 
         # Create an instance of the SubsetSum class and run the genetic algorithm
-        self.genetic = GeneticPartition(numbers, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience)
-        result = self.genetic.genetic_algorithm()
+        self.geneticSolver = GeneticPartition(numbers, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience)
+        result = self.geneticSolver.genetic_algorithm()
 
         # Print the results of the genetic algorithm
-        self.genetic.printResults(result, numbers)
+        self.geneticSolver.printResults(result, numbers)
 
         # Generate random numbers and a target sum for the Subset Sum problem
         numbers = [random.randint(1, 100) for i in range(50)]
@@ -147,11 +147,11 @@ class PartitionProblem:
         patience = 50
 
         # Create an instance of the SubsetSum class and run the genetic algorithm
-        self.genetic = GeneticPartition(numbers, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience)
-        result = self.genetic.genetic_algorithm()
+        self.geneticSolver = GeneticPartition(numbers, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience)
+        result = self.geneticSolver.genetic_algorithm()
 
         # Print the results of the genetic algorithm
-        self.genetic.printResults(result, numbers)
+        self.geneticSolver.printResults(result, numbers)
 
         # Generate random numbers and a target sum for the Subset Sum problem
         numbers = [random.randint(10, 60) for i in range(100)]
@@ -167,14 +167,14 @@ class PartitionProblem:
         patience = 100
 
         # Create an instance of the SubsetSum class and run the genetic algorithm
-        self.genetic = GeneticPartition(numbers, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience)
-        result = self.genetic.genetic_algorithm()
+        self.geneticSolver = GeneticPartition(numbers, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience)
+        result = self.geneticSolver.genetic_algorithm()
 
         # Print the results of the genetic algorithm
-        self.genetic.printResults(result, numbers)
+        self.geneticSolver.printResults(result, numbers)
 
     #Bottom up 
-    def BottomUpequalPartition(arr):
+    def BottomUpequalPartition(self, arr):
     
         # Calculate sum of the elements in array
         arrSum = sum(arr)

@@ -27,10 +27,26 @@ class KnapsackGA(Base.Base):
         return 1 / (1 + overflow)
     
 
+    def printResults(self, result, values, weights, capacities):
+        best = result["bestIndividual"]
+        chosen = [i for i, gene in enumerate(best) if gene]
+ 
+        print()
+        print("Values:", values)
+        print("Weights:", weights)
+        print("Capacities:", capacities)
+        print("Best chromosome:", best)
+        print("Chosen items:", chosen)
+        print("Total value:", sum(values[i] for i in chosen))
+        print("Fitness:", result["bestFitness"])
+        print("Generation:", result["bestGeneration"])
+
+    
+
 class KnapsackExact: 
     
     #Knapsack with recursion 
-    def recursive(W, val, wt, n):
+    def recursive(self, W, val, wt, n):
 
         # Base Case
         if n == 0 or W == 0:
@@ -40,19 +56,19 @@ class KnapsackExact:
 
         # Pick nth item if it does not exceed the capacity of knapsack
         if wt[n - 1] <= W:
-            pick = val[n - 1] + recursive(W - wt[n - 1], val, wt, n - 1)
+            pick = val[n - 1] + self.recursive(W - wt[n - 1], val, wt, n - 1)
         
         # Don't pick the nth item
-        notPick = recursive(W, val, wt, n - 1)
+        notPick = self.recursive(W, val, wt, n - 1)
         
         return max(pick, notPick)
 
-    def recursiveKnapsack(W, val, wt):
+    def recursiveKnapsack(self, W, val, wt):
         n = len(val)
-        return recursive(W, val, wt, n)
+        return self.recursive(W, val, wt, n)
 
     #DP Knapsack 
-    def dp(W, val, wt, n, memo):
+    def dp(self, W, val, wt, n, memo):
 
         # Base Case
         if n == 0 or W == 0:
@@ -66,24 +82,29 @@ class KnapsackExact:
 
         # Pick nth item if it does not exceed the capacity of knapsack
         if wt[n - 1] <= W:
-            pick = val[n - 1] + dp(W - wt[n - 1], val, wt, n - 1, memo)
+            pick = val[n - 1] + self.dp(W - wt[n - 1], val, wt, n - 1, memo)
 
         # Don't pick the nth item
-        notPick = dp(W, val, wt, n - 1, memo)
+        notPick = self.dp(W, val, wt, n - 1, memo)
 
         # Store the result in memo[n][W] and return it
         memo[n][W] = max(pick, notPick)
         return memo[n][W]
 
-    def dpKnapsack(W, val, wt):
+    def dpKnapsack(self, W, val, wt):
         n = len(val)
 
         # Memoization table to store the results
         memo = [[-1] * (W + 1) for _ in range(n + 1)]
 
-        return dp(W, val, wt, n, memo)
+        return self.dp(W, val, wt, n, memo)
 
-    #genetic 
+    def printResults(self, values, weights, capacities, result):
+        print()
+        print("Values:", values)
+        print("Weights:", weights)
+        print("Capacities:", capacities)
+        print("Result:", result)
 
 # Genetic Knapsack
     def genetic(self):
@@ -91,7 +112,7 @@ class KnapsackExact:
        #Generate random values and weights for small Knapsack
         values = [random.randint(10, 100) for i in range(20)]
 
-        weights = [random.randint(1, 30) for i in range(20)]
+        weights = [[random.randint(1, 30)] for i in range(20)]
 
         capacities = [100]
 
@@ -196,28 +217,28 @@ class KnapsackExact:
         result = self.geneticSolver.genetic_algorithm()
         self.geneticSolver.printResults(result, values, weights, capacities)
 
-#Buttom Up DP 
-def buttomUpKnapsack(W, val, wt):
-    n = len(wt)
-    dp = [[0 for _ in range(W + 1)] for _ in range(n + 1)]
+    #Buttom Up DP 
+    def buttomUpKnapsack(W, val, wt):
+        n = len(wt)
+        dp = [[0 for _ in range(W + 1)] for _ in range(n + 1)]
 
-    # Build table dp[][] in bottom-up manner
-    for i in range(n + 1):
-        for j in range(W + 1):
+        # Build table dp[][] in bottom-up manner
+        for i in range(n + 1):
+            for j in range(W + 1):
 
-            # If there is no item or the knapsack's capacity is 0
-            if i == 0 or j == 0:
-                dp[i][j] = 0
-            else:
-                pick = 0
+                # If there is no item or the knapsack's capacity is 0
+                if i == 0 or j == 0:
+                    dp[i][j] = 0
+                else:
+                    pick = 0
 
-                # Pick ith item if it does not exceed the capacity of knapsack
-                if wt[i - 1] <= j:
-                    pick = val[i - 1] + dp[i - 1][j - wt[i - 1]]
+                    # Pick ith item if it does not exceed the capacity of knapsack
+                    if wt[i - 1] <= j:
+                        pick = val[i - 1] + dp[i - 1][j - wt[i - 1]]
 
-                # Don't pick the ith item
-                notPick = dp[i - 1][j]
+                    # Don't pick the ith item
+                    notPick = dp[i - 1][j]
 
-                dp[i][j] = max(pick, notPick)
+                    dp[i][j] = max(pick, notPick)
 
-    return dp[n][W]
+        return dp[n][W]

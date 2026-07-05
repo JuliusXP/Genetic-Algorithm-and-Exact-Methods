@@ -28,6 +28,5 @@ def main():
     partition.printResults(numbersPartition, dpPartitionResult)
 
     partition.genetic()
-
 if __name__ == "__main__":
     main()

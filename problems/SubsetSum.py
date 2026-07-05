@@ -101,11 +101,11 @@ class SubsetSum:
         patience = 20
 
         # Create an instance of the SubsetSum class and run the genetic algorithm
-        self.genetic = GeneticSubsetSum(numbers, target, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience)
-        result = self.genetic.genetic_algorithm()
+        self.geneticSolver = GeneticSubsetSum(numbers, target, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience)
+        result = self.geneticSolver.genetic_algorithm()
 
         # Print the results of the genetic algorithm
-        self.genetic.printResults(result, numbers, target)
+        self.geneticSolver.printResults(result, numbers, target)
 
         # Generate random numbers and a target sum for the Subset Sum problem
         numbers = [random.randint(1, 100) for i in range(50)]
@@ -122,11 +122,11 @@ class SubsetSum:
         patience = 50
 
         # Create an instance of the SubsetSum class and run the genetic algorithm
-        self.genetic = GeneticSubsetSum(numbers, target, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience)
-        result = self.genetic.genetic_algorithm()
+        self.geneticSolver = GeneticSubsetSum(numbers, target, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience)
+        result = self.geneticSolver.genetic_algorithm()
 
         # Print the results of the genetic algorithm
-        self.genetic.printResults(result, numbers, target)
+        self.geneticSolver.printResults(result, numbers, target)
 
         # Generate random numbers and a target sum for the Subset Sum problem
         numbers = [random.randint(10, 60) for i in range(100)]
@@ -144,15 +144,15 @@ class SubsetSum:
         patience = 100
 
         # Create an instance of the SubsetSum class and run the genetic algorithm
-        self.genetic = GeneticSubsetSum(numbers, target, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience)
-        result = self.genetic.genetic_algorithm()
+        self.geneticSolver = GeneticSubsetSum(numbers, target, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience)
+        result = self.geneticSolver.genetic_algorithm()
 
         # Print the results of the genetic algorithm
-        self.genetic.printResults(result, numbers, target)
+        self.geneticSolver.printResults(result, numbers, target)
 
 
     #Bottom up 
-    def BottomUpisSubsetSum(arr, sum):
+    def BottomUpisSubsetSum(self, arr, sum):
         n = len(arr)
 
         # Create a 2D list for storing 
