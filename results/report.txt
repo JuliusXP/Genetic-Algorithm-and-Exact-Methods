@@ -1,0 +1,281 @@
+GA comparative study
+Each GA configuration repeated 10 times (mean +/- std shown)
+
+--- SubsetSum: parameter sweep ---
+SubsetSum    | chromosomSize    = 10         | fitness=0.500+/-0.000 | gen=0.0/41.0 | time=0.042s+/-0.001s
+SubsetSum    | chromosomSize    = 20         | fitness=1.000+/-0.000 | gen=1.6/42.6 | time=0.057s+/-0.002s
+SubsetSum    | chromosomSize    = 40         | fitness=1.000+/-0.000 | gen=1.3/42.3 | time=0.083s+/-0.004s
+SubsetSum    | chromosomSize    = 60         | fitness=1.000+/-0.000 | gen=0.8/41.8 | time=0.106s+/-0.003s
+SubsetSum    | populationSize   = 30         | fitness=1.000+/-0.000 | gen=3.9/44.9 | time=0.015s+/-0.001s
+SubsetSum    | populationSize   = 100        | fitness=1.000+/-0.000 | gen=1.4/42.4 | time=0.045s+/-0.002s
+SubsetSum    | populationSize   = 300        | fitness=1.000+/-0.000 | gen=0.0/41.0 | time=0.137s+/-0.005s
+SubsetSum    | populationSize   = 600        | fitness=1.000+/-0.000 | gen=0.0/41.0 | time=0.282s+/-0.011s
+SubsetSum    | initMethod       = random     | fitness=1.000+/-0.000 | gen=0.9/41.9 | time=0.069s+/-0.003s
+SubsetSum    | initMethod       = heuristic  | fitness=1.000+/-0.000 | gen=0.0/41.0 | time=0.077s+/-0.011s
+SubsetSum    | selectionType    = roulette   | fitness=1.000+/-0.000 | gen=0.6/41.6 | time=0.195s+/-0.019s
+SubsetSum    | selectionType    = ranking    | fitness=1.000+/-0.000 | gen=0.6/41.6 | time=0.279s+/-0.029s
+SubsetSum    | selectionType    = tournament | fitness=1.000+/-0.000 | gen=1.3/42.3 | time=0.067s+/-0.003s
+SubsetSum    | tournamentSize   = 2          | fitness=1.000+/-0.000 | gen=1.2/42.2 | time=0.065s+/-0.003s
+SubsetSum    | tournamentSize   = 5          | fitness=1.000+/-0.000 | gen=0.6/41.6 | time=0.070s+/-0.002s
+SubsetSum    | tournamentSize   = 10         | fitness=1.000+/-0.000 | gen=1.0/42.0 | time=0.084s+/-0.005s
+SubsetSum    | tournamentSize   = 20         | fitness=1.000+/-0.000 | gen=0.5/41.5 | time=0.110s+/-0.010s
+SubsetSum    | crossoverProb    = 0.5        | fitness=1.000+/-0.000 | gen=0.8/41.8 | time=0.077s+/-0.006s
+SubsetSum    | crossoverProb    = 0.7        | fitness=1.000+/-0.000 | gen=0.8/41.8 | time=0.072s+/-0.005s
+SubsetSum    | crossoverProb    = 0.9        | fitness=1.000+/-0.000 | gen=0.3/41.3 | time=0.063s+/-0.001s
+SubsetSum    | crossoverType    = onePoint   | fitness=1.000+/-0.000 | gen=0.7/41.7 | time=0.076s+/-0.007s
+SubsetSum    | crossoverType    = twoPoint   | fitness=1.000+/-0.000 | gen=1.0/42.0 | time=0.088s+/-0.011s
+SubsetSum    | crossoverType    = uniform    | fitness=1.000+/-0.000 | gen=0.8/41.8 | time=0.082s+/-0.012s
+SubsetSum    | mutationProb     = 0.01       | fitness=1.000+/-0.000 | gen=1.0/42.0 | time=0.077s+/-0.007s
+SubsetSum    | mutationProb     = 0.05       | fitness=1.000+/-0.000 | gen=0.8/41.8 | time=0.074s+/-0.004s
+SubsetSum    | mutationProb     = 0.1        | fitness=1.000+/-0.000 | gen=0.7/41.7 | time=0.070s+/-0.003s
+SubsetSum    | mutationProb     = 0.2        | fitness=1.000+/-0.000 | gen=0.7/41.7 | time=0.072s+/-0.007s
+SubsetSum    | mutationType     = bitFlip    | fitness=1.000+/-0.000 | gen=0.9/41.9 | time=0.073s+/-0.005s
+SubsetSum    | mutationType     = swap       | fitness=1.000+/-0.000 | gen=0.5/41.5 | time=0.070s+/-0.002s
+SubsetSum    | elitismNum       = 1          | fitness=1.000+/-0.000 | gen=1.0/42.0 | time=0.067s+/-0.002s
+SubsetSum    | elitismNum       = 5          | fitness=1.000+/-0.000 | gen=0.8/41.8 | time=0.067s+/-0.003s
+SubsetSum    | elitismNum       = 10         | fitness=1.000+/-0.000 | gen=0.4/41.4 | time=0.067s+/-0.002s
+SubsetSum    | elitismNum       = 20         | fitness=1.000+/-0.000 | gen=0.6/41.6 | time=0.066s+/-0.001s
+SubsetSum    | generations      = 50         | fitness=1.000+/-0.000 | gen=0.8/41.8 | time=0.066s+/-0.002s
+SubsetSum    | generations      = 150        | fitness=1.000+/-0.000 | gen=0.5/41.5 | time=0.066s+/-0.002s
+SubsetSum    | generations      = 300        | fitness=1.000+/-0.000 | gen=0.6/41.6 | time=0.066s+/-0.002s
+SubsetSum    | generations      = 600        | fitness=1.000+/-0.000 | gen=1.4/42.4 | time=0.067s+/-0.002s
+SubsetSum    | patience         = 10         | fitness=1.000+/-0.000 | gen=0.9/11.9 | time=0.019s+/-0.002s
+SubsetSum    | patience         = 40         | fitness=1.000+/-0.000 | gen=0.7/41.7 | time=0.065s+/-0.002s
+SubsetSum    | patience         = 100        | fitness=1.000+/-0.000 | gen=1.1/102.1 | time=0.161s+/-0.004s
+SubsetSum    | patience         = 200        | fitness=1.000+/-0.000 | gen=0.6/201.6 | time=0.318s+/-0.004s
+
+--- Partition: parameter sweep ---
+Partition    | chromosomSize    = 10         | fitness=1.000+/-0.000 | gen=0.5/41.5 | time=0.042s+/-0.001s
+Partition    | chromosomSize    = 20         | fitness=1.000+/-0.000 | gen=0.7/41.7 | time=0.056s+/-0.001s
+Partition    | chromosomSize    = 40         | fitness=0.500+/-0.000 | gen=0.5/41.5 | time=0.088s+/-0.001s
+Partition    | chromosomSize    = 60         | fitness=1.000+/-0.000 | gen=1.4/42.4 | time=0.118s+/-0.003s
+Partition    | populationSize   = 30         | fitness=1.000+/-0.000 | gen=6.8/47.8 | time=0.017s+/-0.003s
+Partition    | populationSize   = 100        | fitness=1.000+/-0.000 | gen=1.4/42.4 | time=0.047s+/-0.001s
+Partition    | populationSize   = 300        | fitness=1.000+/-0.000 | gen=0.1/41.1 | time=0.141s+/-0.002s
+Partition    | populationSize   = 600        | fitness=1.000+/-0.000 | gen=0.1/41.1 | time=0.283s+/-0.004s
+Partition    | initMethod       = random     | fitness=1.000+/-0.000 | gen=1.6/42.6 | time=0.070s+/-0.002s
+Partition    | initMethod       = heuristic  | fitness=1.000+/-0.000 | gen=0.0/41.0 | time=0.068s+/-0.001s
+Partition    | selectionType    = roulette   | fitness=1.000+/-0.000 | gen=0.9/41.9 | time=0.170s+/-0.005s
+Partition    | selectionType    = ranking    | fitness=1.000+/-0.000 | gen=0.4/41.4 | time=0.262s+/-0.007s
+Partition    | selectionType    = tournament | fitness=1.000+/-0.000 | gen=0.8/41.8 | time=0.069s+/-0.001s
+Partition    | tournamentSize   = 2          | fitness=1.000+/-0.000 | gen=0.7/41.7 | time=0.067s+/-0.002s
+Partition    | tournamentSize   = 5          | fitness=1.000+/-0.000 | gen=0.6/41.6 | time=0.073s+/-0.002s
+Partition    | tournamentSize   = 10         | fitness=1.000+/-0.000 | gen=0.5/41.5 | time=0.082s+/-0.001s
+Partition    | tournamentSize   = 20         | fitness=1.000+/-0.000 | gen=0.6/41.6 | time=0.102s+/-0.002s
+Partition    | crossoverProb    = 0.5        | fitness=1.000+/-0.000 | gen=0.8/41.8 | time=0.073s+/-0.002s
+Partition    | crossoverProb    = 0.7        | fitness=1.000+/-0.000 | gen=0.2/41.2 | time=0.067s+/-0.001s
+Partition    | crossoverProb    = 0.9        | fitness=1.000+/-0.000 | gen=1.1/42.1 | time=0.064s+/-0.002s
+Partition    | crossoverType    = onePoint   | fitness=1.000+/-0.000 | gen=1.9/42.9 | time=0.070s+/-0.004s
+Partition    | crossoverType    = twoPoint   | fitness=1.000+/-0.000 | gen=0.7/41.7 | time=0.079s+/-0.002s
+Partition    | crossoverType    = uniform    | fitness=1.000+/-0.000 | gen=0.7/41.7 | time=0.076s+/-0.003s
+Partition    | mutationProb     = 0.01       | fitness=1.000+/-0.000 | gen=0.7/41.7 | time=0.069s+/-0.001s
+Partition    | mutationProb     = 0.05       | fitness=1.000+/-0.000 | gen=0.7/41.7 | time=0.069s+/-0.002s
+Partition    | mutationProb     = 0.1        | fitness=1.000+/-0.000 | gen=0.8/41.8 | time=0.070s+/-0.002s
+Partition    | mutationProb     = 0.2        | fitness=1.000+/-0.000 | gen=0.3/41.3 | time=0.070s+/-0.003s
+Partition    | mutationType     = bitFlip    | fitness=1.000+/-0.000 | gen=1.2/42.2 | time=0.070s+/-0.003s
+Partition    | mutationType     = swap       | fitness=1.000+/-0.000 | gen=0.9/41.9 | time=0.071s+/-0.002s
+Partition    | elitismNum       = 1          | fitness=1.000+/-0.000 | gen=0.5/41.5 | time=0.068s+/-0.001s
+Partition    | elitismNum       = 5          | fitness=1.000+/-0.000 | gen=0.4/41.4 | time=0.068s+/-0.002s
+Partition    | elitismNum       = 10         | fitness=1.000+/-0.000 | gen=1.0/42.0 | time=0.069s+/-0.002s
+Partition    | elitismNum       = 20         | fitness=1.000+/-0.000 | gen=0.8/41.8 | time=0.069s+/-0.002s
+Partition    | generations      = 50         | fitness=1.000+/-0.000 | gen=0.2/41.2 | time=0.069s+/-0.004s
+Partition    | generations      = 150        | fitness=1.000+/-0.000 | gen=2.0/43.0 | time=0.070s+/-0.005s
+Partition    | generations      = 300        | fitness=1.000+/-0.000 | gen=1.2/42.2 | time=0.070s+/-0.003s
+Partition    | generations      = 600        | fitness=1.000+/-0.000 | gen=0.6/41.6 | time=0.069s+/-0.002s
+Partition    | patience         = 10         | fitness=1.000+/-0.000 | gen=1.4/12.4 | time=0.021s+/-0.002s
+Partition    | patience         = 40         | fitness=1.000+/-0.000 | gen=0.6/41.6 | time=0.068s+/-0.002s
+Partition    | patience         = 100        | fitness=1.000+/-0.000 | gen=0.6/101.6 | time=0.166s+/-0.002s
+Partition    | patience         = 200        | fitness=1.000+/-0.000 | gen=0.6/201.6 | time=0.347s+/-0.022s
+
+--- BinPacking: parameter sweep ---
+BinPacking   | chromosomSize    = 10         | fitness=1.333+/-0.000 | gen=11.4/52.4 | time=0.082s+/-0.014s
+BinPacking   | chromosomSize    = 20         | fitness=1.143+/-0.000 | gen=28.3/69.3 | time=0.144s+/-0.022s
+BinPacking   | chromosomSize    = 40         | fitness=1.060+/-0.001 | gen=47.3/88.3 | time=0.280s+/-0.057s
+BinPacking   | chromosomSize    = 60         | fitness=1.036+/-0.001 | gen=72.3/113.3 | time=0.526s+/-0.126s
+BinPacking   | populationSize   = 30         | fitness=1.070+/-0.003 | gen=32.5/73.5 | time=0.043s+/-0.008s
+BinPacking   | populationSize   = 100        | fitness=1.072+/-0.004 | gen=32.0/73.0 | time=0.127s+/-0.019s
+BinPacking   | populationSize   = 300        | fitness=1.073+/-0.003 | gen=42.8/83.8 | time=0.463s+/-0.086s
+BinPacking   | populationSize   = 600        | fitness=1.073+/-0.003 | gen=37.2/78.2 | time=0.918s+/-0.155s
+BinPacking   | initMethod       = random     | fitness=1.072+/-0.003 | gen=33.3/74.3 | time=0.204s+/-0.041s
+BinPacking   | initMethod       = heuristic  | fitness=1.083+/-0.000 | gen=0.0/41.0 | time=0.100s+/-0.002s
+BinPacking   | selectionType    = roulette   | fitness=1.070+/-0.004 | gen=39.8/80.8 | time=0.425s+/-0.128s
+BinPacking   | selectionType    = ranking    | fitness=1.072+/-0.003 | gen=58.7/99.7 | time=0.774s+/-0.146s
+BinPacking   | selectionType    = tournament | fitness=1.075+/-0.003 | gen=45.5/86.5 | time=0.225s+/-0.038s
+BinPacking   | tournamentSize   = 2          | fitness=1.071+/-0.004 | gen=48.5/89.5 | time=0.235s+/-0.046s
+BinPacking   | tournamentSize   = 5          | fitness=1.076+/-0.002 | gen=25.0/66.0 | time=0.178s+/-0.023s
+BinPacking   | tournamentSize   = 10         | fitness=1.076+/-0.003 | gen=23.1/64.1 | time=0.192s+/-0.052s
+BinPacking   | tournamentSize   = 20         | fitness=1.076+/-0.002 | gen=17.3/58.3 | time=0.197s+/-0.026s
+BinPacking   | crossoverProb    = 0.5        | fitness=1.073+/-0.003 | gen=36.5/77.5 | time=0.209s+/-0.039s
+BinPacking   | crossoverProb    = 0.7        | fitness=1.073+/-0.003 | gen=39.7/80.7 | time=0.216s+/-0.054s
+BinPacking   | crossoverProb    = 0.9        | fitness=1.076+/-0.003 | gen=50.1/91.1 | time=0.247s+/-0.072s
+BinPacking   | crossoverType    = onePoint   | fitness=1.074+/-0.004 | gen=41.9/82.9 | time=0.216s+/-0.037s
+BinPacking   | crossoverType    = twoPoint   | fitness=1.073+/-0.003 | gen=38.4/79.4 | time=0.227s+/-0.047s
+BinPacking   | crossoverType    = uniform    | fitness=1.072+/-0.003 | gen=40.8/81.8 | time=0.228s+/-0.037s
+BinPacking   | mutationProb     = 0.01       | fitness=1.073+/-0.003 | gen=34.2/75.2 | time=0.184s+/-0.055s
+BinPacking   | mutationProb     = 0.05       | fitness=1.074+/-0.003 | gen=37.3/78.3 | time=0.199s+/-0.021s
+BinPacking   | mutationProb     = 0.1        | fitness=1.067+/-0.005 | gen=28.9/69.9 | time=0.188s+/-0.052s
+BinPacking   | mutationProb     = 0.2        | fitness=1.064+/-0.003 | gen=35.2/76.2 | time=0.214s+/-0.055s
+BinPacking   | mutationType     = bitFlip    | fitness=1.074+/-0.003 | gen=43.9/84.9 | time=0.219s+/-0.040s
+BinPacking   | mutationType     = swap       | fitness=1.074+/-0.004 | gen=36.8/77.8 | time=0.202s+/-0.054s
+BinPacking   | elitismNum       = 1          | fitness=1.073+/-0.002 | gen=53.0/94.0 | time=0.239s+/-0.068s
+BinPacking   | elitismNum       = 5          | fitness=1.076+/-0.004 | gen=37.2/78.2 | time=0.199s+/-0.018s
+BinPacking   | elitismNum       = 10         | fitness=1.073+/-0.003 | gen=28.3/69.3 | time=0.176s+/-0.023s
+BinPacking   | elitismNum       = 20         | fitness=1.075+/-0.003 | gen=32.2/73.2 | time=0.186s+/-0.025s
+BinPacking   | generations      = 50         | fitness=1.073+/-0.003 | gen=32.5/50.0 | time=0.131s+/-0.008s
+BinPacking   | generations      = 150        | fitness=1.072+/-0.004 | gen=39.6/80.6 | time=0.208s+/-0.038s
+BinPacking   | generations      = 300        | fitness=1.073+/-0.004 | gen=34.6/75.6 | time=0.200s+/-0.054s
+BinPacking   | generations      = 600        | fitness=1.073+/-0.002 | gen=25.8/66.8 | time=0.172s+/-0.028s
+BinPacking   | patience         = 10         | fitness=1.066+/-0.005 | gen=16.0/27.0 | time=0.070s+/-0.021s
+BinPacking   | patience         = 40         | fitness=1.075+/-0.003 | gen=42.9/83.9 | time=0.213s+/-0.032s
+BinPacking   | patience         = 100        | fitness=1.074+/-0.003 | gen=47.3/148.3 | time=0.372s+/-0.060s
+BinPacking   | patience         = 200        | fitness=1.076+/-0.003 | gen=93.4/260.5 | time=0.677s+/-0.100s
+
+--- Knapsack: parameter sweep ---
+Knapsack     | chromosomSize    = 10         | fitness=356.000+/-0.000 | gen=1.7/42.7 | time=0.078s+/-0.008s
+Knapsack     | chromosomSize    = 20         | fitness=1458.000+/-0.000 | gen=6.2/47.2 | time=0.118s+/-0.009s
+Knapsack     | chromosomSize    = 40         | fitness=2144.300+/-3.662 | gen=34.8/75.8 | time=0.273s+/-0.043s
+Knapsack     | chromosomSize    = 60         | fitness=3001.000+/-8.854 | gen=79.5/120.5 | time=0.579s+/-0.150s
+Knapsack     | populationSize   = 30         | fitness=1586.000+/-0.000 | gen=19.8/60.8 | time=0.036s+/-0.004s
+Knapsack     | populationSize   = 100        | fitness=1586.000+/-0.000 | gen=15.3/56.3 | time=0.108s+/-0.004s
+Knapsack     | populationSize   = 300        | fitness=1586.000+/-0.000 | gen=12.1/53.1 | time=0.313s+/-0.014s
+Knapsack     | populationSize   = 600        | fitness=1586.000+/-0.000 | gen=11.5/52.5 | time=0.619s+/-0.024s
+Knapsack     | initMethod       = random     | fitness=1586.000+/-0.000 | gen=13.1/54.1 | time=0.156s+/-0.007s
+Knapsack     | initMethod       = heuristic  | fitness=1586.000+/-0.000 | gen=0.0/41.0 | time=0.119s+/-0.001s
+Knapsack     | selectionType    = roulette   | fitness=1581.900+/-8.203 | gen=58.7/99.7 | time=0.506s+/-0.126s
+Knapsack     | selectionType    = ranking    | fitness=1586.000+/-0.000 | gen=20.7/61.7 | time=0.473s+/-0.057s
+Knapsack     | selectionType    = tournament | fitness=1586.000+/-0.000 | gen=11.8/52.8 | time=0.157s+/-0.007s
+Knapsack     | tournamentSize   = 2          | fitness=1586.000+/-0.000 | gen=21.7/62.7 | time=0.177s+/-0.018s
+Knapsack     | tournamentSize   = 5          | fitness=1586.000+/-0.000 | gen=9.3/50.3 | time=0.155s+/-0.005s
+Knapsack     | tournamentSize   = 10         | fitness=1586.000+/-0.000 | gen=7.6/48.6 | time=0.163s+/-0.004s
+Knapsack     | tournamentSize   = 20         | fitness=1586.000+/-0.000 | gen=6.1/47.1 | time=0.181s+/-0.005s
+Knapsack     | crossoverProb    = 0.5        | fitness=1586.000+/-0.000 | gen=15.1/56.1 | time=0.170s+/-0.011s
+Knapsack     | crossoverProb    = 0.7        | fitness=1586.000+/-0.000 | gen=13.6/54.6 | time=0.158s+/-0.006s
+Knapsack     | crossoverProb    = 0.9        | fitness=1586.000+/-0.000 | gen=10.8/51.8 | time=0.145s+/-0.010s
+Knapsack     | crossoverType    = onePoint   | fitness=1586.000+/-0.000 | gen=13.3/54.3 | time=0.157s+/-0.007s
+Knapsack     | crossoverType    = twoPoint   | fitness=1586.000+/-0.000 | gen=12.5/53.5 | time=0.166s+/-0.006s
+Knapsack     | crossoverType    = uniform    | fitness=1586.000+/-0.000 | gen=10.0/51.0 | time=0.154s+/-0.007s
+Knapsack     | mutationProb     = 0.01       | fitness=1586.000+/-0.000 | gen=10.4/51.4 | time=0.156s+/-0.007s
+Knapsack     | mutationProb     = 0.05       | fitness=1586.000+/-0.000 | gen=13.5/54.5 | time=0.160s+/-0.011s
+Knapsack     | mutationProb     = 0.1        | fitness=1582.300+/-7.430 | gen=32.5/73.5 | time=0.207s+/-0.054s
+Knapsack     | mutationProb     = 0.2        | fitness=1522.100+/-26.602 | gen=40.3/81.3 | time=0.210s+/-0.067s
+Knapsack     | mutationType     = bitFlip    | fitness=1586.000+/-0.000 | gen=14.2/55.2 | time=0.160s+/-0.010s
+Knapsack     | mutationType     = swap       | fitness=1586.000+/-0.000 | gen=10.5/51.5 | time=0.158s+/-0.004s
+Knapsack     | elitismNum       = 1          | fitness=1586.000+/-0.000 | gen=14.9/55.9 | time=0.163s+/-0.008s
+Knapsack     | elitismNum       = 5          | fitness=1586.000+/-0.000 | gen=13.0/54.0 | time=0.157s+/-0.009s
+Knapsack     | elitismNum       = 10         | fitness=1586.000+/-0.000 | gen=11.7/52.7 | time=0.153s+/-0.002s
+Knapsack     | elitismNum       = 20         | fitness=1586.000+/-0.000 | gen=12.8/53.8 | time=0.158s+/-0.004s
+Knapsack     | generations      = 50         | fitness=1586.000+/-0.000 | gen=12.2/49.7 | time=0.144s+/-0.003s
+Knapsack     | generations      = 150        | fitness=1586.000+/-0.000 | gen=13.4/54.4 | time=0.157s+/-0.009s
+Knapsack     | generations      = 300        | fitness=1586.000+/-0.000 | gen=13.9/54.9 | time=0.162s+/-0.010s
+Knapsack     | generations      = 600        | fitness=1586.000+/-0.000 | gen=13.8/54.8 | time=0.161s+/-0.010s
+Knapsack     | patience         = 10         | fitness=1586.000+/-0.000 | gen=13.1/24.1 | time=0.068s+/-0.009s
+Knapsack     | patience         = 40         | fitness=1586.000+/-0.000 | gen=12.2/53.2 | time=0.155s+/-0.005s
+Knapsack     | patience         = 100        | fitness=1586.000+/-0.000 | gen=13.6/114.6 | time=0.338s+/-0.009s
+Knapsack     | patience         = 200        | fitness=1586.000+/-0.000 | gen=14.0/215.0 | time=0.633s+/-0.006s
+
+--- SubsetSum: size growth study ---
+SubsetSum    | recursive    | size=   10 | time=0.0039s
+SubsetSum    | dpTopDown    | size=   10 | time=0.0003s
+SubsetSum    | bottomUp     | size=   10 | time=0.0005s
+SubsetSum    | GA           | size=   10 | fitness=1.000 | time=0.041s
+SubsetSum    | recursive    | size=   15 | time=0.0004s
+SubsetSum    | dpTopDown    | size=   15 | time=0.0004s
+SubsetSum    | bottomUp     | size=   15 | time=0.0006s
+SubsetSum    | GA           | size=   15 | fitness=1.000 | time=0.049s
+SubsetSum    | recursive    | size=   18 | time=0.0004s
+SubsetSum    | dpTopDown    | size=   18 | time=0.0003s
+SubsetSum    | bottomUp     | size=   18 | time=0.0006s
+SubsetSum    | GA           | size=   18 | fitness=1.000 | time=0.051s
+SubsetSum    | recursive    | size=   20 | time=0.0004s
+SubsetSum    | dpTopDown    | size=   20 | time=0.0004s
+SubsetSum    | bottomUp     | size=   20 | time=0.0006s
+SubsetSum    | GA           | size=   20 | fitness=1.000 | time=0.054s
+SubsetSum    | recursive    | size=   22 | time=0.0005s
+SubsetSum    | dpTopDown    | size=   22 | time=0.0003s
+SubsetSum    | bottomUp     | size=   22 | time=0.0008s
+SubsetSum    | GA           | size=   22 | fitness=1.000 | time=0.056s
+SubsetSum    | recursive    | size=   24 | time=0.0004s
+SubsetSum    | dpTopDown    | size=   24 | time=0.0003s
+SubsetSum    | bottomUp     | size=   24 | time=0.0008s
+SubsetSum    | GA           | size=   24 | fitness=1.000 | time=0.058s
+
+--- Partition: size growth study ---
+Partition    | recursive    | size=   10 | time=0.0004s
+Partition    | dpTopDown    | size=   10 | time=0.0006s
+Partition    | bottomUp     | size=   10 | time=0.0004s
+Partition    | GA           | size=   10 | fitness=1.000 | time=0.042s
+Partition    | recursive    | size=   15 | time=0.0005s
+Partition    | dpTopDown    | size=   15 | time=0.0008s
+Partition    | bottomUp     | size=   15 | time=0.0005s
+Partition    | GA           | size=   15 | fitness=1.000 | time=0.048s
+Partition    | recursive    | size=   18 | time=0.0004s
+Partition    | dpTopDown    | size=   18 | time=0.0003s
+Partition    | bottomUp     | size=   18 | time=0.0003s
+Partition    | GA           | size=   18 | fitness=0.500 | time=0.053s
+Partition    | recursive    | size=   20 | time=0.0006s
+Partition    | dpTopDown    | size=   20 | time=0.0011s
+Partition    | bottomUp     | size=   20 | time=0.0007s
+Partition    | GA           | size=   20 | fitness=1.000 | time=0.057s
+Partition    | recursive    | size=   22 | time=0.0009s
+Partition    | dpTopDown    | size=   22 | time=0.0014s
+Partition    | bottomUp     | size=   22 | time=0.0009s
+Partition    | GA           | size=   22 | fitness=1.000 | time=0.064s
+Partition    | recursive    | size=   24 | time=0.0013s
+Partition    | dpTopDown    | size=   24 | time=0.0015s
+Partition    | bottomUp     | size=   24 | time=0.0010s
+Partition    | GA           | size=   24 | fitness=1.000 | time=0.063s
+
+--- BinPacking: size growth study ---
+BinPacking   | recursive    | size=    8 | time=0.0010s
+BinPacking   | dpTopDown    | size=    8 | time=0.0012s
+BinPacking   | bottomUp     | size=    8 | time=0.0008s
+BinPacking   | GA           | size=    8 | fitness=1.333 | time=0.068s
+BinPacking   | recursive    | size=   10 | time=0.0159s
+BinPacking   | dpTopDown    | size=   10 | time=0.0295s
+BinPacking   | bottomUp     | size=   10 | time=0.0111s
+BinPacking   | GA           | size=   10 | fitness=1.333 | time=0.077s
+BinPacking   | recursive    | size=   12 | time=0.2827s
+BinPacking   | dpTopDown    | size=   12 | time=0.5406s
+BinPacking   | bottomUp     | size=   12 | time=0.0995s
+BinPacking   | GA           | size=   12 | fitness=1.250 | time=0.084s
+BinPacking   | recursive    | size=   14 | time=12.8060s
+BinPacking   | dpTopDown    | size=   14 | time=26.9614s
+BinPacking   | bottomUp     | size=   14 | time=0.9429s
+BinPacking   | GA           | size=   14 | fitness=1.225 | time=0.099s
+BinPacking   | recursive    | size=   16 | time=509.4905s
+BinPacking   | dpTopDown    | size=   16 | SKIPPED (exceeded 600s)
+BinPacking   | bottomUp     | size=   16 | time=41.6141s
+BinPacking   | GA           | size=   16 | fitness=1.200 | time=0.646s
+BinPacking   | recursive    | size=   18 | SKIPPED (exceeded 600s)
+BinPacking   | bottomUp     | size=   18 | time=341.7449s
+BinPacking   | GA           | size=   18 | fitness=1.141 | time=0.666s
+BinPacking   | bottomUp     | size=   20 | SKIPPED (exceeded 600s)
+BinPacking   | GA           | size=   20 | fitness=1.130 | time=0.994s
+
+--- Knapsack: size growth study ---
+Knapsack     | recursive    | size=   10 | time=0.0604s
+Knapsack     | dpTopDown    | size=   10 | time=0.0581s
+Knapsack     | bottomUp     | size=   10 | time=0.0365s
+Knapsack     | GA           | size=   10 | fitness=492.000 | time=0.596s
+Knapsack     | recursive    | size=   14 | time=0.0727s
+Knapsack     | dpTopDown    | size=   14 | time=0.0576s
+Knapsack     | bottomUp     | size=   14 | time=0.0329s
+Knapsack     | GA           | size=   14 | fitness=706.000 | time=0.765s
+Knapsack     | recursive    | size=   18 | time=0.2851s
+Knapsack     | dpTopDown    | size=   18 | time=0.0736s
+Knapsack     | bottomUp     | size=   18 | time=0.0781s
+Knapsack     | GA           | size=   18 | fitness=843.000 | time=0.993s
+Knapsack     | recursive    | size=   20 | time=1.3046s
+Knapsack     | dpTopDown    | size=   20 | time=0.0524s
+Knapsack     | bottomUp     | size=   20 | time=0.0627s
+Knapsack     | GA           | size=   20 | fitness=1003.000 | time=0.806s
+Knapsack     | recursive    | size=   22 | time=5.6869s
+Knapsack     | dpTopDown    | size=   22 | time=0.0592s
+Knapsack     | bottomUp     | size=   22 | time=0.0418s
+Knapsack     | GA           | size=   22 | fitness=1254.000 | time=0.802s
+Knapsack     | recursive    | size=   24 | time=19.9165s
+Knapsack     | dpTopDown    | size=   24 | time=0.0710s
+Knapsack     | bottomUp     | size=   24 | time=0.5530s
+Knapsack     | GA           | size=   24 | fitness=1433.000 | time=0.940s
+
+Done.

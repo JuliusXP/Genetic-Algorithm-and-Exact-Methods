@@ -34,7 +34,7 @@ class GeneticBinPacking(Base.Base):
 
  # Each gene is the bin index assigned to that item
  # In which box is it?
- # Chromosome is a list, i is the positio of the object i.
+ # Chromosome is a list, i is the position of the object i.
     def createIndividual(self, chromosomSize):
         return [random.randint(0, chromosomSize - 1) for _ in range(chromosomSize)]
     
