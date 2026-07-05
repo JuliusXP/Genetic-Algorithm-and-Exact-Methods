@@ -3,10 +3,24 @@ import random
 
 # Subclass for the Subset Sum problem, inheriting from the Base class
 class GeneticSubsetSum(Base.Base):
-    def __init__(self, numbers, target, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience, crossoverType="onePoint", mutationType="bitFlip"):
-        super().__init__(selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience, crossoverType, mutationType)
+    def __init__(self, numbers, target, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience, crossoverType="onePoint", mutationType="bitFlip", initMethod="random"):
+        super().__init__(selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience, crossoverType, mutationType, initMethod)
         self.numbers = numbers
         self.target = target
+
+
+    def heuristicIndividual(self):
+        order = sorted(range(len(self.numbers)), key=lambda i: self.numbers[i], reverse=True)
+        individual = [0] * len(self.numbers)
+        total = 0
+
+        for i in order:
+            if total + self.numbers[i] <= self.target:
+                individual[i] = 1
+                total += self.numbers[i]
+
+        return individual
+
 
     #Calculate the fitness of an individual, which is based on how close the sum of the selected numbers is to the target sum
     def fitness(self, individual):

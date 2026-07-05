@@ -3,9 +3,26 @@ import random
 
 # Subclass for the Subset Sum problem, inheriting from the Base class
 class GeneticPartition(Base.Base):
-    def __init__(self, numbers, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience, crossoverType="onePoint", mutationType="bitFlip"):
-        super().__init__(selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience, crossoverType, mutationType)
+    def __init__(self, numbers, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience, crossoverType="onePoint", mutationType="bitFlip", initMethod="random"):
+        super().__init__(selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience, crossoverType, mutationType, initMethod)
         self.numbers = numbers
+
+
+    def heuristicIndividual(self):
+        order = sorted(range(len(self.numbers)), key=lambda i: self.numbers[i], reverse=True)
+        individual = [0] * len(self.numbers)
+        totalA, totalB = 0, 0
+
+        for i in order:
+            if totalA <= totalB:
+                individual[i] = 1
+                totalA += self.numbers[i]
+            else:
+                totalB += self.numbers[i]
+
+        return individual
+    
+    
 
     #Calculate the fitness of an individual
     def fitness(self, individual):

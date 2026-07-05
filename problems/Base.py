@@ -10,7 +10,7 @@ Dudas para el profe:
 
 #Base class for Genetic Algorithms
 class Base():
-    def __init__(self, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience, crossoverType="onePoint", mutationType="bitFlip"):
+    def __init__(self, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience, crossoverType="onePoint", mutationType="bitFlip", initMethod="random"):
         self.selectionType = selectionType
         self.chromosomSize = chromosomSize
         self.populationSize = populationSize
@@ -22,6 +22,7 @@ class Base():
         self.patience = patience
         self.crossoverType = crossoverType
         self.mutationType = mutationType
+        self.initMethod = initMethod
 
     #Create an Individual chromosom, this function is polymorphic, it will be declared in the classes of each genetic algorithm
     def createIndividual(self, chromosomSize):
@@ -34,8 +35,20 @@ class Base():
     #Create a population of individuals
     def createPopulation(self):
         population = [self.createIndividual(self.chromosomSize) for i in range(self.populationSize)]
+
+        if self.initMethod == "heuristic":
+            heuristic = self.heuristicIndividual()
+            if heuristic is not None:
+                population[0] = heuristic
+
         return population
     
+
+    # Heuristic individual. None means "not implemented"
+    def heuristicIndividual(self):
+        return None
+    
+
     #Calculate the fitness of an individual, this function is polymorphic, it will be declared in the classes of each genetic algorithm
     def fitness(self, individual):
         pass
@@ -169,7 +182,7 @@ class Base():
                 individual[i], individual[j] = individual[j], individual[i]
         return individual
     
-    
+
     # Implement elitism, which is the process of selecting the best individuals from the current generation and carrying them over to the next generation without modification
     def elitism(self, evaluated):
 
