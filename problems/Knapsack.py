@@ -196,8 +196,8 @@ class KnapsackExact:
         result = self.geneticSolver.genetic_algorithm()
         self.geneticSolver.printResults(result, values, weights, capacities)
 
-#Button Up DP 
-def buttonUpKnapsack(W, val, wt):
+#Buttom Up DP 
+def buttomUpKnapsack(W, val, wt):
     n = len(wt)
     dp = [[0 for _ in range(W + 1)] for _ in range(n + 1)]
 
