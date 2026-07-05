@@ -3,10 +3,34 @@ import random
  
 # Subclass for the Bin Packing problem, inheriting from the Base class
 class GeneticBinPacking(Base.Base):
-    def __init__(self, items, capacity, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience, crossoverType="onePoint", mutationType="bitFlip"):
-        super().__init__(selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience, crossoverType, mutationType)
+    def __init__(self, items, capacity, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience, crossoverType="onePoint", mutationType="bitFlip", initMethod="random"):
+        super().__init__(selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience, crossoverType, mutationType, initMethod)
         self.items = items
         self.capacity = capacity
+
+
+
+    def heuristicIndividual(self):
+        order = sorted(range(len(self.items)), key=lambda i: self.items[i], reverse=True)
+        individual = [0] * len(self.items)
+        binLoads = []
+
+        for i in order:
+            placed = False
+            for b in range(len(binLoads)):
+                if binLoads[b] + self.items[i] <= self.capacity:
+                    binLoads[b] += self.items[i]
+                    individual[i] = b
+                    placed = True
+                    break
+            if not placed:
+                binLoads.append(self.items[i])
+                individual[i] = len(binLoads) - 1
+
+        return individual
+    
+
+    
 
  # Each gene is the bin index assigned to that item
  # In which box is it?

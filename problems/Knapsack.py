@@ -4,13 +4,34 @@ import problems.Base as Base
 
 class KnapsackGA(Base.Base):
     
-    def __init__(self, values, weights, capacities, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience, crossoverType="onePoint", mutationType="bitFlip"):
-        super().__init__(selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience, crossoverType, mutationType)
+    def __init__(self, values, weights, capacities, selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience, crossoverType="onePoint", mutationType="bitFlip", initMethod="random"):
+        super().__init__(selectionType, chromosomSize, populationSize, generations, tournamentSize, mutationProb, crossoverProb, elitismNum, patience, crossoverType, mutationType, initMethod)
         self.values = values
         self.weights = weights
         self.capacities = capacities
         self.dimensions = len(capacities)
 
+
+
+
+    def heuristicIndividual(self):
+        def density(i):
+            weight = sum(self.weights[i])
+            return self.values[i] / weight if weight > 0 else float("inf")
+
+        order = sorted(range(len(self.values)), key=density, reverse=True)
+        individual = [0] * len(self.values)
+        used = [0] * self.dimensions
+
+        for i in order:
+            newUsed = [used[d] + self.weights[i][d] for d in range(self.dimensions)]
+            if all(newUsed[d] <= self.capacities[d] for d in range(self.dimensions)):
+                individual[i] = 1
+                used = newUsed
+
+        return individual
+    
+    
     
     def fitness(self, individual):
         value = 0
